@@ -147,6 +147,7 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.Listener {
         super.onDestroy()
 
         compositeDisposable?.clear()
+        job?.cancel()
     }
 
 }
