@@ -10,8 +10,13 @@ import com.atilsamancioglu.retrofitresponsehandling.adapter.RecyclerViewAdapter
 import com.atilsamancioglu.retrofitresponsehandling.databinding.ActivityMainBinding
 import com.atilsamancioglu.retrofitresponsehandling.model.CryptoModel
 import com.atilsamancioglu.retrofitresponsehandling.service.CryptoAPI
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
+import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.coroutines.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -78,22 +83,17 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.Listener {
                 }
             }
         }
-        /*
+
+/*
         compositeDisposable?.add(retrofit.getData()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(this::handleResponse))
+*/
 
 
-         */
-
-        /*
-
-        val service = retrofit.create(CryptoAPI::class.java)
-
-        val call = service.getData()
-
-
+/*
+        val call = retrofit.getData()
 
         call.enqueue(object: Callback<List<CryptoModel>> {
             override fun onFailure(call: Call<List<CryptoModel>>, t: Throwable) {
@@ -129,8 +129,8 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.Listener {
 
         })
 
+*/
 
-         */
 
     }
 
